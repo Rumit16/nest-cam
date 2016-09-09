@@ -1,8 +1,8 @@
 import {Component, ViewChild} from '@angular/core';
 import {ionicBootstrap, Platform, MenuController, Nav} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
-import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
-import {ListPage} from './pages/list/list';
+import {NestCamHomePage} from './pages/nestcam-home/nestcam-home';
+import {NestCamListPage} from './pages/nestcam-list/nestcam-list';
 
 
 @Component({
@@ -11,8 +11,8 @@ import {ListPage} from './pages/list/list';
 class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  // make HelloIonicPage the root (or first) page
-  rootPage: any = HelloIonicPage;
+  // make NestCamHomePage the root (or first) page
+  rootPage: any = NestCamHomePage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -23,8 +23,8 @@ class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage }
+      { title: 'Home', component: NestCamHomePage },
+      { title: 'Cameras', component: NestCamListPage }
     ];
   }
 

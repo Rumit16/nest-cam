@@ -3,9 +3,9 @@ import {NavController, NavParams} from 'ionic-angular';
 
 
 @Component({
-  templateUrl: 'build/pages/item-details/item-details.html'
+  templateUrl: 'build/pages/nestcam-details/nestcam-details.html'
 })
-export class ItemDetailsPage {
+export class NestCamDetailsPage {
   selectedItem: any;
 
   constructor(public navCtrl: NavController, navParams: NavParams) {

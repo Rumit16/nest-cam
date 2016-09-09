@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
-import {ItemDetailsPage} from '../item-details/item-details';
+import {NestCamDetailsPage} from '../nestcam-details/nestcam-details';
 
 
 @Component({
-  templateUrl: 'build/pages/list/list.html'
+  templateUrl: 'build/pages/nestcam-list/nestcam-list.html'
 })
-export class ListPage {
+export class NestCamListPage {
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
@@ -29,7 +29,7 @@ export class ListPage {
   }
 
   itemTapped(event, item) {
-    this.navCtrl.push(ItemDetailsPage, {
+    this.navCtrl.push(NestCamDetailsPage, {
       item: item
     });
   }

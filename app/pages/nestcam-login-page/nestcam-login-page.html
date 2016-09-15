@@ -1,35 +1,50 @@
-<!--
-  Generated template for the NestcamLoginPagePage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-
-
-
 <ion-header>
+
   <ion-navbar>
+
     <button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>NestcamLoginPage</ion-title>
+
+    <ion-title>Sign In to NestCam</ion-title>
+
   </ion-navbar>
+
 </ion-header>
 
-<ion-content class="login" padding>
-  <div padding>
-  </div>
-  <form>
-    <ion-list [ngFormModel]="Loginform">
-      <ion-item>
-        <ion-label floating>Username</ion-label>
-        <ion-input type="email" ngControl="email" name="username" required></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Password</ion-label>
-        <ion-input type="password" ngControl="password" name="password" required></ion-input>
-      </ion-item>
-    </ion-list>
-    <button full favorite>Login</button>
-  </form>
+<ion-content class="login-page" padding>
+
+  <ion-card>
+
+    <ion-card-content>
+
+      <form [formGroup]="loginForm" (ngSubmit)="Login(loginForm.valid)">
+
+        <div padding>
+          <ion-item>
+            <ion-label floating>Email:</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+        </div>
+
+        <div padding>
+          <ion-item>
+            <ion-label floating>Password:</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </div>
+
+        <div padding>
+          <button block type="submit">
+            Login
+            <ion-icon name="arrow-forward"></ion-icon>
+          </button>
+        </div>
+
+      </form>
+
+    </ion-card-content>
+
+  </ion-card>
+
 </ion-content>

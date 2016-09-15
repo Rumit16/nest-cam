@@ -1,26 +1,52 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { FORM_DIRECTIVES, FormBuilder, Validators, AbstractControl,REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
+import { LoadingController, NavController } from 'ionic-angular';
+import {UserService} from '../../providers/user-service/user-service';
+import {NestCamHomePage} from '../../pages/nestcam-home/nestcam-home';
+import {FormBuilder, Validators} from '@angular/common';
 
 
-/*
-  Generated class for the NestcamLoginPagePage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   templateUrl: 'build/pages/nestcam-login-page/nestcam-login-page.html',
-  directives: [FORM_DIRECTIVES]
+  providers: [UserService]
 })
-export class NestcamLoginPagePage {
-    public Loginform:any;
-     
-  constructor(private navCtrl: NavController,public _form: FormBuilder) {
- this.Loginform = this._form.group({  
-            "email": ["", Validators.required],
-            'password': ["", Validators.required]
-        })
-   } 	
+
+export class NestCamLoginPagePage {
+
+  loginForm: any;
+
+  constructor(public nav: NavController, public userService: UserService, public loadingCtrl: LoadingController, private fb: FormBuilder) {
+
+  }
+
+  ionViewLoaded() {
+
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+
+  }
+
+  // Sign in current user with email and password.
+  Login(isValid: boolean) {
+
+    if (isValid) {
+
+      // Instantiate spinner. 
+      let loading = this.loadingCtrl.create({
+        content: 'Signing In...'
+      });
+
+      loading.present();
+
+      setTimeout(() => {
+        loading.dismiss();
+        // Navigate to Home Page after loggin in.
+        this.nav.setRoot(NestCamHomePage);
+      }, 3000);
+
+    }
+
+  }
+
 }
-      

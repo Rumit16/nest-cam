@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { FORM_DIRECTIVES, FormBuilder, Validators, AbstractControl,REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
+
 
 /*
   Generated class for the NestcamLoginPagePage page.
@@ -9,11 +11,16 @@ import { NavController } from 'ionic-angular';
 */
 @Component({
   templateUrl: 'build/pages/nestcam-login-page/nestcam-login-page.html',
+  directives: [FORM_DIRECTIVES]
 })
 export class NestcamLoginPagePage {
-
-  constructor(private navCtrl: NavController) {
-
-  }
-
+    public Loginform:any;
+     
+  constructor(private navCtrl: NavController,public _form: FormBuilder) {
+ this.Loginform = this._form.group({  
+            "email": ["", Validators.required],
+            'password': ["", Validators.required]
+        })
+   } 	
 }
+      

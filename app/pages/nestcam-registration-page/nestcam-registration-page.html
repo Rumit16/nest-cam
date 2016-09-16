@@ -1,0 +1,65 @@
+<!--
+  Generated template for the NestcamRegistrationPagePage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Nestcam Registration Page</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card>
+
+    <ion-card-content>
+
+      <form [formGroup]="registerForm" (ngSubmit)="Register(registerForm.valid)">
+
+        <div padding>
+          <ion-item>
+            <ion-label floating>First Name</ion-label>
+            <ion-input type="text" formControlName="firstname"></ion-input>
+          </ion-item>
+        </div>
+
+        <div padding>
+          <ion-item>
+            <ion-label floating>Last Name</ion-label>
+            <ion-input type="text" formControlName="lastname"></ion-input>
+          </ion-item>
+        </div>
+
+        <div padding>
+          <ion-item>
+            <ion-label floating>Email ID</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+        </div>
+
+        <div padding>
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </div>
+
+        <div padding>
+          <button block type="submit"> 
+            Register 
+            <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+        </div>
+        
+      </form>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

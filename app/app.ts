@@ -3,7 +3,9 @@ import {ionicBootstrap, Platform, MenuController, Nav} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {NestCamHomePage} from './pages/nestcam-home/nestcam-home';
 import {NestCamListPage} from './pages/nestcam-list/nestcam-list';
+import {NestcamRegistrationPage} from './pages/nestcam-registration-page/nestcam-registration-page';
 import {NestCamLoginPagePage} from './pages/nestcam-login-page/nestcam-login-page';
+
 
 @Component({
   templateUrl: 'build/app.html'
@@ -25,6 +27,7 @@ class MyApp {
     this.pages = [
       { title: 'Home', component: NestCamHomePage },
       { title: 'Cameras', component: NestCamListPage },
+      { title: 'Registration', component: NestcamRegistrationPage}
       {title: 'Login', component: NestCamLoginPagePage}
     ];
   }

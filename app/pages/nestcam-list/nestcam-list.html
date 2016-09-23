@@ -3,21 +3,35 @@
     <button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>My First List</ion-title>
+    <ion-title>My Cameras</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon name="{{item.icon}}" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+<ion-content class="list-avatar-page">
+
+  <ion-card>
+    <ion-card-content>
+
+      <ion-list>
+
+        <button ion-item *ngFor="let device of devices" (click)="deviceTapped($event, devices)">
+          <ion-item>
+            <ion-avatar item-left>
+              <img src={{device.previewImgUrl}}>
+            </ion-avatar>
+            <h1>{{device.name}}</h1>
+            <p>{{device.motionAlerts}} Motion Alerts Detected. </p>
+            <ion-icon name="camera" item-right></ion-icon>
+          </ion-item>
+        </button>
+
+        <div *ngIf="selectedItem" padding>
+          You navigated here from <b>{{device.previewImgUrl}}</b>
+        </div>
+
+      </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

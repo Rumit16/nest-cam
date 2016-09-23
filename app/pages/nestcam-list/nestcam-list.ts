@@ -1,36 +1,26 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {NestCamDetailsPage} from '../nestcam-details/nestcam-details';
+import {DeviceService} from '../../providers/device-service/device-service';
+import {DeviceModel} from '../../models/device.ts';
 
 
 @Component({
-  templateUrl: 'build/pages/nestcam-list/nestcam-list.html'
+  templateUrl: 'build/pages/nestcam-list/nestcam-list.html',
+  providers: [DeviceService]
 })
 export class NestCamListPage {
-  selectedItem: any;
-  icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  devices: Array<DeviceModel>;
 
-  constructor(public navCtrl: NavController, navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
+  constructor(public navCtrl: NavController, public deviceService: DeviceService) {
 
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
+    this.devices = deviceService.getAllDevices();
 
-    this.items = [];
-    for(let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
   }
 
-  itemTapped(event, item) {
+  deviceTapped(event, device) {
     this.navCtrl.push(NestCamDetailsPage, {
-      item: item
+      device: device
     });
   }
 }

@@ -6,39 +6,43 @@
       <ion-icon name="menu"></ion-icon>
     </button>
 
-    <ion-title>Sign In to NestCam</ion-title>
+    <ion-title>NestCam Dashboard</ion-title>
 
   </ion-navbar>
 
 </ion-header>
 
-<ion-content class="login-page" padding>
+<ion-content class="login-page page-body" padding>
 
-  <ion-card>
+  <ion-card class="content-card">
 
     <ion-card-content>
+
+      <div class="heading">Sign In to NestCam</div>
 
       <form [formGroup]="loginForm" (ngSubmit)="Login(loginForm.valid)">
 
         <div padding>
-          <ion-item>
+          <ion-item secondary>
             <ion-label floating>Email:</ion-label>
             <ion-input type="email" formControlName="email"></ion-input>
           </ion-item>
         </div>
 
         <div padding>
-          <ion-item>
+          <ion-item secondary>
             <ion-label floating>Password:</ion-label>
             <ion-input type="password" formControlName="password"></ion-input>
           </ion-item>
         </div>
 
         <div padding>
-          <button block type="submit">
+          <ion-buttons end>
+            <button class="nav-button" clear type="submit">
             Login
             <ion-icon name="arrow-forward"></ion-icon>
-          </button>
+            </button>
+          </ion-buttons>
         </div>
 
       </form>

@@ -3,18 +3,47 @@ import {ionicBootstrap, Platform, MenuController, Nav} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {NestCamHomePage} from './pages/nestcam-home/nestcam-home';
 import {NestCamListPage} from './pages/nestcam-list/nestcam-list';
-import {NestcamRegistrationPage} from './pages/nestcam-registration-page/nestcam-registration-page';
-import {NestCamLoginPagePage} from './pages/nestcam-login-page/nestcam-login-page';
+import {NestCamRegistrationPage} from './pages/nestcam-registration/nestcam-registration';
+import {NestCamLoginPage} from './pages/nestcam-login/nestcam-login';
 
+// Singleton services.
+import { DeviceService } from './providers/device-service/device-service';
+import { ConfigService } from './providers/config-service/config-service';
+import { UtilityService } from './providers/utility-service/utility-service';
+import { UserService } from './providers/user-service/user-service';
+import { NestApplicationInterface } from './nest/NestApplicationInterface';
+import { NestRepresentationManager } from './nest/representations/NestRepresentationManager';
+import { NestNetworkManager } from './nest/network/NestNetworkManager';
+import { NoTokenSetWhileMakingRequest } from './nest/network/NetworkManagerErrors';
+import { TokenMustBeString } from './nest/network/NetworkManagerErrors';
+import { NestNetworkManagerUtils } from './nest/network/NestNetworkManagerUtils';
+import { EMITABLE_EVENTS } from './nest/network/NestNetworkManagerConstants';
+import { NETWORK_STREAM_EVENTS } from './nest/network/NestNetworkManagerConstants';
+import { NETWORK_ERROR_EVENTS } from './nest/network/NestNetworkManagerConstants';
 
 @Component({
-  templateUrl: 'build/app.html'
+  templateUrl: 'build/app.html',
+  providers: [
+    DeviceService,
+    ConfigService,
+    UtilityService,
+    UserService,
+    NestApplicationInterface,
+    NestRepresentationManager,
+    NestNetworkManager,
+    NoTokenSetWhileMakingRequest,
+    TokenMustBeString,
+    NestNetworkManagerUtils,
+    EMITABLE_EVENTS,
+    NETWORK_STREAM_EVENTS,
+    NETWORK_ERROR_EVENTS
+  ]
 })
 class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make NestCamLoginPagePage the root (or first) page
-  rootPage: any = NestCamLoginPagePage;
+  rootPage: any = NestCamLoginPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -27,8 +56,8 @@ class MyApp {
     this.pages = [
       { title: 'Home', component: NestCamHomePage },
       { title: 'Cameras', component: NestCamListPage },
-      { title: 'Registration', component: NestcamRegistrationPage}
-      {title: 'Login', component: NestCamLoginPagePage}
+      { title: 'Registration', component: NestCamRegistrationPage},
+      {title: 'Login', component: NestCamLoginPage}
     ];
   }
 

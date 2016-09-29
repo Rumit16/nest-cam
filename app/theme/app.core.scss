@@ -10,3 +10,144 @@
 @import "../pages/nestcam-home/nestcam-home";
 
 @import "../pages/nestcam-details/nestcam-details";
+
+@import "../pages/nestcam-list/nestcam-list";
+
+
+.page-body {
+  background: url('../../images/dark_background.png') black;
+  background-attachment: scroll;
+}
+
+/*Custom style for headings*/
+.heading {
+    font-weight: 300;
+    color: $secondary-color;
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+
+ion-navbar .toolbar-title {
+
+    color: $title-color!important;
+    font-size: 2.7rem;
+    font-weight: 400;
+    font-family: 'Roboto';
+    text-decoration: none;
+    border: none;
+    outline: none;
+
+}
+
+ion-card.content-card {
+
+    background: rgba(0, 0, 0, 0.5);
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+ion-card.content-card .nav-button {
+
+    color: $input-color;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 50px;
+    
+}
+
+ion-card.content-card ion-item {
+
+    background: transparent;
+
+}
+
+ion-card.content-card ion-list * {
+
+    background: transparent;
+    color: $input-color;
+    font-weight: 300;
+
+}
+
+
+ion-card.content-card ion-item.item.item-label-floating.item-input ion-label{
+
+        font-weight: 300;
+        color: $input-color;
+
+}
+
+ion-card.content-card ion-item ion-input{
+
+        font-weight: 300;
+        color: $input-color;
+
+}
+
+ion-card.content-card ion-item.item.item-label-floating.item-input.input-has-focus ion-label{
+
+        font-weight: 400;
+        color: $secondary-color;
+
+}
+
+ion-card.content-card ion-item.item-input.ng-untouched .item-inner {
+    border-bottom-color: $input-color;
+    box-shadow: inset 0 -1px 0 0 $input-color;
+}
+
+ion-card.content-card ion-item.item-input.input-has-focus .item-inner {
+    border-bottom-color: $secondary-color;
+    box-shadow: inset 0 -1px 0 0 $secondary-color;
+}
+
+ion-card.content-card ion-item.item-input.ng-invalid.ng-touched .item-inner {
+    border-bottom-color: #f53d3d;
+    box-shadow: inset 0 -1px 0 0 #f53d3d;
+}
+
+ion-card.content-card.justify-vertically {
+
+    min-height: calc(100vh - 108px);
+
+}
+
+ion-navbar .toolbar-background {
+
+    background-color: rgb(189,189,189)!important;
+
+}
+
+/*Small screen styles*/
+@media (min-width: 1px) and (max-width: 599px) {
+
+    ion-card.content-card {
+
+        width: 90% !important;
+
+    }
+
+}
+
+/*Medium screens*/
+@media (min-width: 600px) and (max-width: 959px) {
+
+    ion-card.content-card {
+        
+        width: 70% !important;
+        
+    }
+}
+
+/*Large screens*/
+@media (min-width: 960px) {
+
+    ion-card.content-card {
+
+        width: 50% !important;
+
+    }
+
+}

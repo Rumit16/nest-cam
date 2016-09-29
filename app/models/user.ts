@@ -1,7 +1,6 @@
 
 // Model class for holding user information.
-export class UserModel  
-{
+export class UserModel  {
 
     public id: number;
     public name: string;

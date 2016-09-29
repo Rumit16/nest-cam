@@ -1,18 +1,23 @@
+<!-- Allows embedding of iframe to live stream -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://video.nest.com/embedded/live/rrwzgV?autoplay=1">
+
 <ion-header>
   <ion-navbar>
-    <button menuToggle *ngIf="!selectedItem">
+    <button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Item Details</ion-title>
+    <ion-title>{{_selectedDevice.name}}</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
- <div *ngIf="selectedItem" class="selection">
-    <b>{{selectedItem.name}}</b>
-    <ion-icon name="{{selectedItem.name}}"></ion-icon>
-    <div>
-      You navigated here from <b>{{selectedItem.previewImgUrl}}</b>
-    </div>
-  </div>
+<ion-content class="device-details page-body">
+
+  <ion-card id="live-stream-container" class="content-card">
+    <ion-card-content>
+
+      <iframe id="live-stream" type="text/html" frameborder="0" src="https://video.nest.com/embedded/live/rrwzgV?autoplay=1" allowfullscreen></iframe>
+
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

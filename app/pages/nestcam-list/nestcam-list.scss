@@ -1,0 +1,18 @@
+.list-page ion-card.content-card ion-list img {
+
+    height: 80px!important;
+    width: 142px!important;
+    margin-right: 15px!important;
+
+}
+
+/*Small screen styles*/
+@media (min-width: 1px) and (max-width: 599px) {
+
+    ion-card.content-card .live-feed-button {
+
+        display: none;
+
+    }
+
+}

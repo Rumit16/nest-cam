@@ -7,27 +7,23 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="list-avatar-page">
+<ion-content class="list-page page-body">
 
-  <ion-card>
+  <ion-card class="content-card">
     <ion-card-content>
 
       <ion-list>
 
-        <button ion-item *ngFor="let device of devices" (click)="deviceTapped($event, devices)">
-          <ion-item>
-            <ion-avatar item-left>
-              <img src={{device.previewImgUrl}}>
-            </ion-avatar>
-            <h1>{{device.name}}</h1>
-            <p>{{device.motionAlerts}} Motion Alerts Detected. </p>
-            <ion-icon name="camera" item-right></ion-icon>
-          </ion-item>
-        </button>
+        <button ion-item *ngFor="let device of _devices$ | async" (click)="deviceTapped($event, device)">
+          <ion-item> 
 
-        <div *ngIf="selectedItem" padding>
-          You navigated here from <b>{{device.previewImgUrl}}</b>
-        </div>
+            <img item-left height="80" width="142" src="{{device.snapshotURL}}">
+            <h1> {{device.name}} </h1>
+            <p>Is online: {{device.isOnline}}</p>
+            <p class="live-feed-button" item-right>LIVE FEED</p>
+
+        </ion-item>
+        </button>
 
       </ion-list>
 

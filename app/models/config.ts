@@ -1,0 +1,18 @@
+
+// App configuration model.
+
+export class ConfigModel {
+
+    public nestBaseAuthenticationUrl: string = 'https://api.home.nest.com/oauth2';
+
+    public nestBaseAPIUrl: string = 'https://developer-api.nest.com';
+
+    public nestAuthenticationPin: string = 'NQQEHZ37';
+
+    public nestAuthenticationToken: string = 'c.mzqJOprsnP7mmS6Cbl7GE9NtKEZsZH67OWetXsoKhtITqeXKMW698gdLeNZYc9HvRy3qYSnaJuEfkBFxbLx2SzKI1mlG05JI8I6lEjg6TEdqelqecmjxvrzwN0CZOHdR3LaiLXkQmRMcsJbc';
+
+    public nestProductID: string = 'c653f69a-62be-47fa-8c9e-f99d6c133f85';
+
+    public nestProductSecret: string = 's27T0NIBWCkM8wSm2Kf1qzTBk';
+
+}

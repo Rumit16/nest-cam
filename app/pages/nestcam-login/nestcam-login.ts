@@ -1,17 +1,17 @@
-import { Component } from '@angular/core';
-import { LoadingController, NavController } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {LoadingController, NavController} from 'ionic-angular';
 import {UserService} from '../../providers/user-service/user-service';
+import {ConfigService} from '../../providers/config-service/config-service';
 import {UserModel} from '../../models/user.ts';
 import {NestCamHomePage} from '../../pages/nestcam-home/nestcam-home';
 import {FormBuilder, Validators} from '@angular/common';
 
 
 @Component({
-  templateUrl: 'build/pages/nestcam-login-page/nestcam-login-page.html',
-  providers: [UserService]
+  templateUrl: 'build/pages/nestcam-login/nestcam-login.html'
 })
 
-export class NestCamLoginPagePage {
+export class NestCamLoginPage {
 
   loginForm: any;
   user: UserModel;
@@ -53,9 +53,9 @@ export class NestCamLoginPagePage {
 
   }
 
-  NavigateToHomePage(user: UserModel),  {
+  NavigateToHomePage(user: UserModel)  {
       setTimeout(() => {
-        loading.dismiss();
+        //loading.dismiss();
         // Navigate to Home Page after loggin in.
         this.nav.setRoot(NestCamHomePage);
       }, 3000);

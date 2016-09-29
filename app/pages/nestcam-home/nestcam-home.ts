@@ -4,8 +4,7 @@ import {UserModel} from '../../models/user.ts';
 
 
 @Component({
-  templateUrl: 'build/pages/nestcam-home/nestcam-home.html',
-  providers: [UserService]
+  templateUrl: 'build/pages/nestcam-home/nestcam-home.html'
 })
 export class NestCamHomePage {
 

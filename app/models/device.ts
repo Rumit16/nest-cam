@@ -1,6 +1,7 @@
+import { NestCamEventModel } from './nestcam-event';
 
-// Model class for holding user information.
-export class DeviceModel  {
+// Model class for holding NestCam information.
+export class DeviceModel {
 
     public id: string;
     public name: string;
@@ -13,6 +14,9 @@ export class DeviceModel  {
     public isAudioEnabled: boolean;
     public lastIsOnlineActivity: Date;
     public embededIframe: string;
+
+    public hasNewEvent: boolean;
+    public LastEvent: NestCamEventModel;
 
 }
 

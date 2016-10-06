@@ -29,3 +29,40 @@
 // App Material Design Only Sass
 // --------------------------------------------------
 // CSS that should only apply to the Material Design app
+
+/*Custom styles for inputs*/
+ion-card.content-card ion-item.item.item-label-floating.item-input ion-label{
+
+        font-weight: 300;
+        color: $input-color;
+
+}
+
+ion-card.content-card ion-item ion-input{
+
+        font-weight: 300;
+        color: $input-color;
+
+}
+
+ion-card.content-card ion-item.item.item-label-floating.item-input.input-has-focus ion-label{
+
+        font-weight: 400;
+        color: $secondary-color;
+
+}
+
+ion-card.content-card ion-item.item-input.ng-untouched .item-inner {
+    border-bottom-color: $input-color;
+    box-shadow: inset 0 -1px 0 0 $input-color;
+}
+
+ion-card.content-card ion-item.item-input.input-has-focus .item-inner {
+    border-bottom-color: $secondary-color;
+    box-shadow: inset 0 -1px 0 0 $secondary-color;
+}
+
+ion-card.content-card ion-item.item-input.ng-invalid.ng-touched .item-inner {
+    border-bottom-color: #f53d3d;
+    box-shadow: inset 0 -1px 0 0 #f53d3d;
+}

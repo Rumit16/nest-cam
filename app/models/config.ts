@@ -15,4 +15,11 @@ export class ConfigModel {
 
     public nestProductSecret: string = 's27T0NIBWCkM8wSm2Kf1qzTBk';
 
+    // Notification email properties.
+    public nestFromAddress: string = 'sample@email.address';
+
+    public nestEmailSubject: string = '{{camera_name}}} detected motion.';
+
+    public nestEmailMessageBody: string = 'Motion was detected by {{camera_name}}} camera at {{start_time}}. Please check live video feed for potential intruders.';
+
 }

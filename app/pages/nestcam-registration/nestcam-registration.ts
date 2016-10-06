@@ -1,9 +1,10 @@
-import {Component} from '@angular/core';
-import {LoadingController, NavController} from 'ionic-angular';
-import {NestCamHomePage} from '../../pages/nestcam-home/nestcam-home';
-import {FormBuilder, Validators} from '@angular/forms';
-import {UserService} from '../../providers/user-service/user-service';
-import {ConfigService} from '../../providers/config-service/config-service';
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { UtilityService } from '../../providers/utility-service/utility-service';
+import { NestCamListPage } from '../../pages/nestcam-list/nestcam-list';
+import { FormBuilder, Validators } from '@angular/forms';
+import { UserService } from '../../providers/user-service/user-service';
+import { ConfigService } from '../../providers/config-service/config-service';
 
 @Component({
   templateUrl: 'build/pages/nestcam-registration/nestcam-registration.html',
@@ -12,8 +13,8 @@ import {ConfigService} from '../../providers/config-service/config-service';
 export class NestCamRegistrationPage {
 
   registerForm: any;
-  
-  constructor(public nav: NavController, public userService: UserService, public loadingCtrl: LoadingController, private fb: FormBuilder) {}
+
+  constructor(private _userService: UserService, private _util: UtilityService, private fb: FormBuilder, private _nav: NavController) { }
 
   ionViewLoaded() {
 
@@ -31,16 +32,15 @@ export class NestCamRegistrationPage {
     if (isValid) {
 
       // Instantiate spinner. 
-      let loading = this.loadingCtrl.create({
-        content: 'Registering User...'
-      });
-
-      loading.present();
+      this._util.startSpinner('Registering User...');
 
       setTimeout(() => {
-        loading.dismiss();
+
+        this._util.stopSpinner();
+
         // Navigate to Home Page after loggin in.
-        this.nav.setRoot(NestCamHomePage);
+        this._nav.setRoot(NestCamListPage);
+
       }, 3000);
 
     }

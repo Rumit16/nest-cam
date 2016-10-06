@@ -12,12 +12,12 @@
   <ion-card class="content-card">
     <ion-card-content>
 
-      <ion-list>
+      <ion-list class="nestcam-device-list">
 
         <button ion-item *ngFor="let device of _devices$ | async" (click)="deviceTapped($event, device)">
           <ion-item> 
 
-            <img item-left height="80" width="142" src="{{device.snapshotURL}}">
+            <img class="device-preview-snapshot" item-left src="{{device.snapshotURL}}">
             <h1> {{device.name}} </h1>
             <p>Is online: {{device.isOnline}}</p>
             <p class="live-feed-button" item-right>LIVE FEED</p>

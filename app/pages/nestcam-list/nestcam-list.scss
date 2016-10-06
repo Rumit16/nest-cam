@@ -1,9 +1,17 @@
 .list-page ion-card.content-card ion-list img {
 
-    height: 80px!important;
-    width: 142px!important;
-    margin-right: 15px!important;
+    height: 80px;
+    width: 142px;
+    margin-right: 15px;
 
+}
+
+.nestcam-device-list button {
+    padding-left: 0;
+}
+
+.nestcam-device-list button ion-item {
+    padding-left: 0;
 }
 
 /*Small screen styles*/
@@ -13,6 +21,18 @@
 
         display: none;
 
+    }
+
+    .list-page ion-card.content-card ion-list img {
+
+        height: 40px;
+        width: 71px;
+        margin-right: 10px;
+
+    }
+
+    .nestcam-device-list button ion-label {
+        margin: 0;
     }
 
 }

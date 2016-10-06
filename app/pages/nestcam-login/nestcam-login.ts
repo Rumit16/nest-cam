@@ -1,10 +1,10 @@
-import {Component} from '@angular/core';
-import {LoadingController, NavController} from 'ionic-angular';
-import {UserService} from '../../providers/user-service/user-service';
-import {ConfigService} from '../../providers/config-service/config-service';
-import {UserModel} from '../../models/user.ts';
-import {NestCamHomePage} from '../../pages/nestcam-home/nestcam-home';
-import {FormBuilder, Validators} from '@angular/common';
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { UserService } from '../../providers/user-service/user-service';
+import { UtilityService } from '../../providers/utility-service/utility-service';
+import { UserModel } from '../../models/user.ts';
+import { NestCamListPage } from '../../pages/nestcam-list/nestcam-list';
+import { FormBuilder, Validators } from '@angular/common';
 
 
 @Component({
@@ -17,13 +17,13 @@ export class NestCamLoginPage {
   user: UserModel;
   errorMessage: string;
 
-  constructor(public nav: NavController, public userService: UserService, public loadingCtrl: LoadingController, private fb: FormBuilder) {
+  constructor(private _userService: UserService, private _util: UtilityService, private _fb: FormBuilder, private _nav: NavController) {
 
   }
 
   ionViewLoaded() {
 
-    this.loginForm = this.fb.group({
+    this.loginForm = this._fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
     });
@@ -36,28 +36,30 @@ export class NestCamLoginPage {
     if (isValid) {
 
       // Instantiate spinner. 
-      let loading = this.loadingCtrl.create({
-        content: 'Signing In...'
-      });
+      this._util.startSpinner('Signing In...');
 
-      loading.present();
+      // this._userService.Login("", "")
+        //.subscribe
+        //(
+         // user => this.NavigateToHomePage(user),
+          //error => this.errorMessage = <any>error
+        //);
 
-      this.userService.Login("", "")
-        .subscribe
-        (
-          user => this.NavigateToHomePage(user),
-          error => this.errorMessage = <any>error
-        );
+        this.NavigateToHomePage(null);
 
     }
 
   }
 
   NavigateToHomePage(user: UserModel)  {
+
       setTimeout(() => {
-        //loading.dismiss();
+        
+        this._util.stopSpinner();
+
         // Navigate to Home Page after loggin in.
-        this.nav.setRoot(NestCamHomePage);
+        this._nav.setRoot(NestCamListPage);
+
       }, 3000);
   }
 

@@ -29,3 +29,52 @@
 // App Windows Only Sass
 // --------------------------------------------------
 // CSS that should only apply to the Windows app
+
+/*Custom styles for inputs*/
+ion-card.content-card ion-item.item.item-label-floating.item-input ion-label{
+
+        font-weight: 300;
+        color: $input-color;
+
+}
+
+ion-card.content-card ion-item ion-input{
+
+        font-weight: 300;
+        color: $input-color;
+
+}
+
+ion-card.content-card ion-item.item.item-label-floating.item-input.input-has-focus ion-label{
+
+        font-weight: 400;
+        color: $secondary-color;
+
+}
+
+ion-card.content-card ion-item ion-input .text-input.ng-untouched {
+
+        border: 2px solid $primary-color;
+        color: $input-color;
+
+}
+
+ion-card.content-card ion-item ion-input .text-input.ng-touched {
+
+        border: 2px solid $secondary-color;
+        color: $input-color;
+
+}
+
+ion-card.content-card  ion-item.input-has-focus ion-input .text-input.ng-untouched {
+
+        border: 2px solid $secondary-color;
+        color: $input-color;
+
+}
+
+ion-card.content-card  .item-input.ng-valid.input-has-value:not(.input-has-focus) .text-input {
+
+    border-color: $primary-color;
+    
+}

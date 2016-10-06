@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController} from 'ionic-angular';
+import { NavController } from 'ionic-angular';
+import { UtilityService } from '../../providers/utility-service/utility-service';
 import { NestCamDetailsPage } from '../nestcam-details/nestcam-details';
 import { DeviceService } from '../../providers/device-service/device-service';
 import { DeviceModel } from '../../models/device.ts';
@@ -13,7 +14,7 @@ export class NestCamListPage {
 
   private _devices$: Observable<Array<DeviceModel>>;
 
-  constructor(private _navCtrl: NavController, private _deviceService: DeviceService) { }
+  constructor(private _util: UtilityService, private _deviceService: DeviceService, private _nav: NavController ) { }
 
   ionViewLoaded() {
 
@@ -24,7 +25,7 @@ export class NestCamListPage {
 
   deviceTapped(event: any, device: DeviceModel) {
 
-    this._navCtrl.push(NestCamDetailsPage, {
+    this._nav.push(NestCamDetailsPage, {
       device: device
     });
 

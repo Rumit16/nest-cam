@@ -48,5 +48,18 @@ export class ConfigService {
     this._config.nestProductSecret = value;
   }
 
+  // Notification email properties.
+  get nestEmailFromAddress(): string {
+    return this._config.nestFromAddress;
+  }
+
+  get nestEmailSubject(): string {
+    return this._config.nestEmailSubject;
+  }
+
+  get nestEmailMessageBody(): string {
+    return this._config.nestEmailMessageBody;
+  }
+
 }
 

@@ -1,12 +1,13 @@
-import {Component, ViewChild} from '@angular/core';
-import {ionicBootstrap, Platform, MenuController, Nav} from 'ionic-angular';
-import {StatusBar} from 'ionic-native';
-import {NestCamHomePage} from './pages/nestcam-home/nestcam-home';
-import {NestCamListPage} from './pages/nestcam-list/nestcam-list';
-import {NestCamRegistrationPage} from './pages/nestcam-registration/nestcam-registration';
-import {NestCamLoginPage} from './pages/nestcam-login/nestcam-login';
+import { Component, ViewChild } from '@angular/core';
+import { ionicBootstrap, Platform, MenuController, Nav } from 'ionic-angular';
+import { StatusBar } from 'ionic-native';
+import { NestCamListPage } from './pages/nestcam-list/nestcam-list';
+import { NestCamRegistrationPage } from './pages/nestcam-registration/nestcam-registration';
+import { NestCamLoginPage } from './pages/nestcam-login/nestcam-login';
 
 // Singleton services.
+import { EmailService } from './providers/email-service/email-service';
+import { NotificationService } from './providers/notification-service/notification-service';
 import { DeviceService } from './providers/device-service/device-service';
 import { ConfigService } from './providers/config-service/config-service';
 import { UtilityService } from './providers/utility-service/utility-service';
@@ -24,6 +25,8 @@ import { NETWORK_ERROR_EVENTS } from './nest/network/NestNetworkManagerConstants
 @Component({
   templateUrl: 'build/app.html',
   providers: [
+    EmailService,
+    NotificationService,
     DeviceService,
     ConfigService,
     UtilityService,
@@ -54,7 +57,6 @@ class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Home', component: NestCamHomePage },
       { title: 'Cameras', component: NestCamListPage },
       { title: 'Registration', component: NestCamRegistrationPage},
       {title: 'Login', component: NestCamLoginPage}

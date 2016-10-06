@@ -1,20 +1,29 @@
 import { Injectable } from '@angular/core';
-import { random } from 'lodash';
+import { LoadingController, Loading } from 'ionic-angular';
 
 @Injectable()
 export class UtilityService {
 
-  public static GeneratePseudoRandomRange(intLength: number) {
+  private _spinner: Loading;
 
-    var chars = [];
+  constructor(private _loadingCtrl: LoadingController) { }
 
-    for (var i = 0; i < intLength; i++) {
+  // Common method for displaying 'loading' spinners.
+  public startSpinner(message: string) {
 
-      chars.push(String.fromCharCode(random(97, 122)));
-      chars.push(random(0, 9).toString());
-    }
+    this._spinner = this._loadingCtrl.create({
+      content: message
+    });
 
-    return chars.join('');
+    this._spinner.present();
+
+  }
+
+  // Dismisses 'loading' spinner.
+  public stopSpinner() {
+
+    this._spinner.dismiss();
+
   }
 
 }

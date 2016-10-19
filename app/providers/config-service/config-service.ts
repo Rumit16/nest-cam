@@ -61,5 +61,28 @@ export class ConfigService {
     return this._config.nestEmailMessageBody;
   }
 
+  //MailGun properties API key and Domain name
+  set mailGunAPIKey(value: string) {
+    this._config.mailGunAPIKey = value;
+  }
+
+  get mailGunAPIKey(): string {
+    return this._config.mailGunAPIKey;
+  }
+  set mailGunDomain(value: string) {
+    this._config.mailGunDomain = value;
+  }
+  get mailGunDomain(): string {
+    return this._config.mailGunDomain;
+
+  }
+  set mailGunURL(value: string) {
+    this._config.mailGunURL = value;
+  }
+  get mailGunURL(): string {
+    return this._config.mailGunURL;
+
+  }
+
 }
 

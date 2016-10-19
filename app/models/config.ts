@@ -22,4 +22,11 @@ export class ConfigModel {
 
     public nestEmailMessageBody: string = 'Motion was detected by {{camera_name}}} camera at {{start_time}}. Please check live video feed for potential intruders.';
 
+    public mailGunAPIKey: string ="key-38c961c975d833b4844ee3f983d46db7";
+
+    public mailGunDomain: string ="sandboxcae2ff4026c04998820a9c4afe192644.mailgun.org";
+
+    public mailGunURL: string ="https://api.mailgun.net/v3/";
+
+
 }

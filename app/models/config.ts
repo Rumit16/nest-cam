@@ -3,6 +3,9 @@
 
 export class ConfigModel {
 
+    public loginURL: string = 'https://nestcamapi.azurewebsites.net/api/user/login';
+
+    // Nest API properties.
     public nestBaseAuthenticationUrl: string = 'https://api.home.nest.com/oauth2';
 
     public nestBaseAPIUrl: string = 'https://developer-api.nest.com';
@@ -18,15 +21,15 @@ export class ConfigModel {
     // Notification email properties.
     public nestFromAddress: string = 'sample@email.address';
 
-    public nestEmailSubject: string = '{{camera_name}}} detected motion.';
+    public nestEmailSubject: string = '{{camera_name}} detected motion.';
 
-    public nestEmailMessageBody: string = 'Motion was detected by {{camera_name}}} camera at {{start_time}}. Please check live video feed for potential intruders.';
+    public nestEmailMessageBody: string = 'Motion was detected by {{camera_name}} camera at {{start_time}}. Please check live video feed for potential intruders.';
 
-    public mailGunAPIKey: string ="key-38c961c975d833b4844ee3f983d46db7";
+    // MailGun properties.
+    public mailGunAPIKey: string = 'key-38c961c975d833b4844ee3f983d46db7';
 
-    public mailGunDomain: string ="sandboxcae2ff4026c04998820a9c4afe192644.mailgun.org";
+    public mailGunDomain: string = 'sandboxcae2ff4026c04998820a9c4afe192644.mailgun.org';
 
-    public mailGunURL: string ="https://api.mailgun.net/v3/";
-
+    public mailGunURL: string = 'https://api.mailgun.net/v3/';
 
 }

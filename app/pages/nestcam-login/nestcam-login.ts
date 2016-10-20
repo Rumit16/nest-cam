@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { UserService } from '../../providers/user-service/user-service';
 import { UtilityService } from '../../providers/utility-service/utility-service';
-import { UserModel } from '../../models/user.ts';
+import { UserModel } from '../../models/user';
 import { NestCamListPage } from '../../pages/nestcam-list/nestcam-list';
 import { FormBuilder, Validators } from '@angular/common';
 
@@ -30,37 +30,32 @@ export class NestCamLoginPage {
 
   }
 
-  // Sign in current user with email and password.
-  Login(isValid: boolean) {
+  // Sign in app user with email and password.
+  public Login(isValid: boolean, email: string, password: string) {
 
     if (isValid) {
 
       // Instantiate spinner. 
-      this._util.startSpinner('Signing In...');
+      this._util.StartSpinner('Signing In...');
 
-      // this._userService.Login("", "")
-        //.subscribe
-        //(
-         // user => this.NavigateToHomePage(user),
-          //error => this.errorMessage = <any>error
-        //);
+      // Initiate Login.
+      this._userService.Login(email, password)
+        .subscribe(user => {
 
-        this.NavigateToHomePage(null);
+          // Navigate to Home Page after successful loggin in.
+          this._nav.setRoot(NestCamListPage);
+
+        }, error => {
+
+          this._util.StopSpinner();
+
+          this._util.ShowAlert('Login Error', 'Username or password is not correct.');
+
+        });
 
     }
 
   }
 
-  NavigateToHomePage(user: UserModel)  {
-
-      setTimeout(() => {
-        
-        this._util.stopSpinner();
-
-        // Navigate to Home Page after loggin in.
-        this._nav.setRoot(NestCamListPage);
-
-      }, 3000);
-  }
 
 }

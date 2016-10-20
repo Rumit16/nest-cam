@@ -14,7 +14,7 @@
 
       <ion-list class="nestcam-device-list">
 
-        <button ion-item *ngFor="let device of _devices$ | async" (click)="deviceTapped($event, device)">
+        <button ion-item *ngFor="let device of _devices" (click)="deviceTapped($event, device)">
           <ion-item> 
 
             <img class="device-preview-snapshot" item-left src="{{device.snapshotURL}}">

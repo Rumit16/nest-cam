@@ -20,7 +20,7 @@
 
       <div class="heading">Sign In to NestCam</div>
 
-      <form [formGroup]="loginForm" (ngSubmit)="Login(loginForm.valid)">
+      <form [formGroup]="loginForm" (ngSubmit)="Login(loginForm.valid, loginForm.controls.email.value, loginForm.controls.password.value)">
 
         <div padding>
           <ion-item secondary>

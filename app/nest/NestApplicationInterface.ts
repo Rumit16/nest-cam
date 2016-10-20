@@ -113,9 +113,9 @@ export class NestApplicationInterface {
      * @memberof NestApplicationInterface
      * @method addUpdateListener
      */
-    public addUpdateListener(fn: Function) {
+    public addUpdateListener() {
 
-        this._representationManager.addUpdateListener(fn);
+        this._representationManager.addUpdateListener();
     }
 
     /**

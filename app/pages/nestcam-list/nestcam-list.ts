@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { UtilityService } from '../../providers/utility-service/utility-service';
 import { NestCamDetailsPage } from '../nestcam-details/nestcam-details';
 import { DeviceService } from '../../providers/device-service/device-service';
-import { DeviceModel } from '../../models/device.ts';
+import { DeviceModel } from '../../models/device';
 import { Observable } from 'rxjs/Observable';
 
 
@@ -12,14 +12,20 @@ import { Observable } from 'rxjs/Observable';
 })
 export class NestCamListPage {
 
-  private _devices$: Observable<Array<DeviceModel>>;
+  private _devices: Array<DeviceModel>;
 
-  constructor(private _util: UtilityService, private _deviceService: DeviceService, private _nav: NavController ) { }
+  constructor(private _util: UtilityService, private _deviceService: DeviceService, private _nav: NavController) { }
 
   ionViewLoaded() {
 
     // Subscribe to devices$ Observable.
-    this._devices$ = this._deviceService.devices$;
+    this._deviceService.devices$.subscribe(devices => {
+
+      this._devices = devices;
+
+      this._util.StopSpinner();
+
+    });
 
   }
 

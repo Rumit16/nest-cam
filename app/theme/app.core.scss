@@ -62,6 +62,34 @@ ion-navbar .toolbar-background {
 
 }
 
+/*Custom style for alerts*/
+.alert-wrapper {
+    background-color: $input-color;
+}
+
+.alert-wrapper .alert-title {
+    color: $title-color;
+}
+
+.alert-wrapper .alert-message {
+    color: $primary-color-dark;
+}
+
+.alert-wrapper .alert-button {
+    color: $title-color;
+    font-size: 18px;
+}
+
+/*Custom style for loading spinners*/
+.loading-wrapper .loading-spinner .spinner-crescent circle {
+    stroke: $primary-color-dark;
+}
+
+.loading-wrapper {
+    color: $primary-color-dark;
+    background-color: $primary-color;
+}
+
 /*Custom style for main content cards layout*/
 ion-card.content-card {
 

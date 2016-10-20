@@ -32,11 +32,11 @@ export class NestCamRegistrationPage {
     if (isValid) {
 
       // Instantiate spinner. 
-      this._util.startSpinner('Registering User...');
+      this._util.StartSpinner('Registering User...');
 
       setTimeout(() => {
 
-        this._util.stopSpinner();
+        this._util.StopSpinner();
 
         // Navigate to Home Page after loggin in.
         this._nav.setRoot(NestCamListPage);

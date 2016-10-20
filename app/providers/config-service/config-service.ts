@@ -1,11 +1,22 @@
 import { Injectable } from '@angular/core';
-import { ConfigModel } from '../../models/config.ts';
+import { ConfigModel } from '../../models/config';
 
 @Injectable()
 export class ConfigService {
 
-  private _config: ConfigModel = new ConfigModel();
+  private _config: ConfigModel;
 
+  constructor() {
+
+    this._config = new ConfigModel();
+
+  }
+
+  get loginURL(): string {
+    return this._config.loginURL;
+  }
+
+  // Nest API properties.
   get nestBaseAuthenticationUrl(): string {
     return this._config.nestBaseAuthenticationUrl;
   }
@@ -61,7 +72,7 @@ export class ConfigService {
     return this._config.nestEmailMessageBody;
   }
 
-  //MailGun properties API key and Domain name
+  // MailGun API properties.
   set mailGunAPIKey(value: string) {
     this._config.mailGunAPIKey = value;
   }
@@ -69,19 +80,21 @@ export class ConfigService {
   get mailGunAPIKey(): string {
     return this._config.mailGunAPIKey;
   }
+
   set mailGunDomain(value: string) {
     this._config.mailGunDomain = value;
   }
+
   get mailGunDomain(): string {
     return this._config.mailGunDomain;
-
   }
+
   set mailGunURL(value: string) {
     this._config.mailGunURL = value;
   }
+
   get mailGunURL(): string {
     return this._config.mailGunURL;
-
   }
 
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { EmailService } from '../../providers/email-service/email-service';
 import { UserService } from '../../providers/user-service/user-service';
 import { ConfigService } from '../../providers/config-service/config-service';
-import { DeviceModel } from '../../models/device.ts';
+import { DeviceModel } from '../../models/device';
 
 @Injectable()
 export class NotificationService {
@@ -15,30 +15,38 @@ export class NotificationService {
     private nestEmailSubject: string;
     private nestEmailMessageBody: string;
 
-
     constructor(private _email: EmailService, private _user: UserService, private _config: ConfigService) { }
 
-    public sendMotionNotification(device: DeviceModel) {
+    public SendMotionNotification(device: DeviceModel) {
 
-        // use combination of user info, device info, and config value to construct
         this.userName = this._user.GetCurrentUser().name;
         this.userEmail = this._user.GetCurrentUser().email;
         this.cameraName = device.name;
-        this.startTime = device.lastIsOnlineActivity;
+        this.startTime = device.LastEvent.startTime;
         this.nestEmailFromAddress = this._config.nestEmailFromAddress;
-        this.nestEmailSubject = this.setNestEmailSubject(this.cameraName);
-        this.nestEmailMessageBody = this.setNestEmailMessageBody(this.cameraName, this.startTime);
+        this.nestEmailSubject = this._SetNestEmailSubject(this._config.nestEmailSubject, this.cameraName);
+        this.nestEmailMessageBody = this._SetNestEmailMessageBody(this._config.nestEmailMessageBody, this.cameraName, this.startTime);
 
-        // all the necessary parameters to execute EmailService.sendEmail method.
-        this._email.sendEmail(this.userEmail, this.nestEmailFromAddress, this.nestEmailSubject, this.nestEmailMessageBody);
+        // Passing all the necessary parameters to execute EmailService.sendEmail method.
+        this._email.SendEmail(this.userEmail, this.nestEmailFromAddress, this.nestEmailSubject, this.nestEmailMessageBody);
 
     }
 
-    setNestEmailSubject(cameraName: string) {
-        return cameraName + ' detected motion.';
+    private _SetNestEmailSubject(emailSubjectTemplate: string, cameraName: string) {
+
+        var emailSubject: string = emailSubjectTemplate.replace('{{camera_name}}', cameraName);
+        
+        return emailSubject;
+
     }
-    setNestEmailMessageBody(cameraName: string, startTime: Date) {
-        return 'Motion was detected by ' + cameraName + ' camera at ' + startTime + '. Please check live video feed for potential intruders.'
+    
+    private _SetNestEmailMessageBody(emailBodyTemplate: string, cameraName: string, startTime: Date) {
+
+        var emailBody: string = emailBodyTemplate.replace('{{camera_name}}', cameraName);
+        emailBody = emailBody.replace('{{start_time}}', startTime.toTimeString());
+
+        return emailBody;
+
     }
 }
 

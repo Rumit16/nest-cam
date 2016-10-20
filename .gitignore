@@ -8,3 +8,8 @@ plugins/
 *.swp
 .DS_Store
 Thumbs.db
+API/NestCam/packages
+API/NestCam/NestCam.Domain/obj
+API/NestCam/NestCam.Domain/bin
+API/NestCam/NestCam.API/obj
+API/NestCam/NestCam.API/bin

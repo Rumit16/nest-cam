@@ -131,14 +131,13 @@ export class NestRepresentationManager extends EventEmitter {
      * @public
      * @memberof NestRepresentationManager
      * @method addUpdateListener
-     * @param {Function} fnCallback - the function to be called when the event is emitted.
      * @returns {NestRepresentationManager} - the representation manager instance so that calls can be chained
      */
-    public addUpdateListener(callbackFn: Function) {
+    public addUpdateListener() {
 
         super.on(
             this._EMITABLE_EVENTS.update
-            , callbackFn
+            , this._onUpdateCallback
         );
 
         return this;
@@ -340,6 +339,13 @@ export class NestRepresentationManager extends EventEmitter {
 
     // Updates observable when device cache is hydrated.
     private _onHydrateCallback(deviceCache: Object) {
+
+        this._hydratedDevices$.next(deviceCache);
+
+    };
+
+        // Updates observable when device cache is updated.
+    private _onUpdateCallback(deviceCache: Object) {
 
         this._hydratedDevices$.next(deviceCache);
 

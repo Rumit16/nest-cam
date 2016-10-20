@@ -1,40 +1,38 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Request, RequestMethod } from '@angular/http';
 import { ConfigService } from '../../providers/config-service/config-service';
-
-
-declare var setMailgun: any;
+import { UtilityService } from '../../providers/utility-service/utility-service';
 
 @Injectable()
 export class EmailService {
 
-  constructor(private _http: Http, private _config: ConfigService) { }
+  constructor(private _http: Http, private _config: ConfigService, private _utility: UtilityService) { }
 
-  public sendEmail(
-    to: string,
-    from: string,
-    subject: string,
+  // Generic method for sending emails via MailGun API.
+  public SendEmail(
+    toEmail: string,
+    fromEmail: string,
+    emailSubject: string,
     messageBody: string,
     attachment?: any
   ) {
-    // use MailGun library to send an email from here
 
     var requestHeaders = new Headers();
-    var mailgunApiKey = window.btoa("api:" + this._config.mailGunAPIKey);
-    requestHeaders.append("Authorization", "Basic " + mailgunApiKey);
-    requestHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    var mailgunApiKey = window.btoa('api:' + this._config.mailGunAPIKey);
+    requestHeaders.append('Authorization', 'Basic ' + mailgunApiKey);
+    requestHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    //sending email via http request call
+    // Sending email via http request call.
     this._http.request(new Request({
       method: RequestMethod.Post,
-      url: this._config.mailGunURL + this._config.mailGunDomain + "/messages",
-      body: "from=" + from + "&to=" + to + "&subject=" + subject + "&text=" + messageBody,
+      url: this._config.mailGunURL + this._config.mailGunDomain + '/messages',
+      body: 'from=' + fromEmail + '&to=' + toEmail + '&subject=' + emailSubject + '&text=' + messageBody,
       headers: requestHeaders
     }))
       .subscribe(success => {
-        console.log("SUCCESS -> " + JSON.stringify(success));
+        this._utility.ShowAlert('Email Sent!', JSON.stringify(success));
       }, error => {
-        console.log("ERROR -> " + JSON.stringify(error));
+        this._utility.ShowAlert('Error Sending Email', JSON.stringify(error));
       });
 
   }

@@ -1,0 +1,5 @@
+C:\nest-cam\API\NestCam\NestCam.Infrastructure\bin\Debug\NestCam.Infrastructure.dll
+C:\nest-cam\API\NestCam\NestCam.Infrastructure\bin\Debug\NestCam.Infrastructure.pdb
+C:\nest-cam\API\NestCam\NestCam.Infrastructure\obj\Debug\NestCam.Infrastructure.csprojResolveAssemblyReference.cache
+C:\nest-cam\API\NestCam\NestCam.Infrastructure\obj\Debug\NestCam.Infrastructure.dll
+C:\nest-cam\API\NestCam\NestCam.Infrastructure\obj\Debug\NestCam.Infrastructure.pdb

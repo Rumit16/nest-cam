@@ -4,7 +4,6 @@ import { UtilityService } from '../../providers/utility-service/utility-service'
 import { NestCamDetailsPage } from '../nestcam-details/nestcam-details';
 import { DeviceService } from '../../providers/device-service/device-service';
 import { DeviceModel } from '../../models/device';
-import { Observable } from 'rxjs/Observable';
 
 
 @Component({

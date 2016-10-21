@@ -3,7 +3,7 @@
 
 export class ConfigModel {
 
-    public loginURL: string = 'https://nestcamapi.azurewebsites.net/api/user/login';
+    public loginURL: string = 'https://nestcamapi.azurewebsites.net/api/users/login';
 
     // Nest API properties.
     public nestBaseAuthenticationUrl: string = 'https://api.home.nest.com/oauth2';

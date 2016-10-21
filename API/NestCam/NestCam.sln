@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NestCam.Domain", "NestCam.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NestCam.API", "NestCam.API\NestCam.API.csproj", "{06C50CFC-9CFA-4C95-9567-4ACE56651594}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NestCam.Infrastructure", "NestCam.Infrastructure\NestCam.Infrastructure.csproj", "{40F70EC8-05D4-4E81-84D6-2279F6ABFE82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{06C50CFC-9CFA-4C95-9567-4ACE56651594}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06C50CFC-9CFA-4C95-9567-4ACE56651594}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06C50CFC-9CFA-4C95-9567-4ACE56651594}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40F70EC8-05D4-4E81-84D6-2279F6ABFE82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40F70EC8-05D4-4E81-84D6-2279F6ABFE82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40F70EC8-05D4-4E81-84D6-2279F6ABFE82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40F70EC8-05D4-4E81-84D6-2279F6ABFE82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -32,7 +32,7 @@ export class NotificationService {
 
     }
 
-    private _SetNestEmailSubject(emailSubjectTemplate: string, cameraName: string) {
+    private _SetNestEmailSubject(emailSubjectTemplate: string, cameraName: string): string {
 
         var emailSubject: string = emailSubjectTemplate.replace('{{camera_name}}', cameraName);
         
